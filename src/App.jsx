@@ -1,15 +1,36 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+// src/App.jsx
+import React from 'react';
+import Sidebar from './Components/Sidebar';
+// import Header from './Components/Header';
+import MainContent from './pages/MainContent/MainContent';
+// import Footer from './Components/Footer';
+import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Mainlogin from './pages/Login/Mainlogin';
+import LoginAccess from './pages/Login/LoginAccess';
 
-function App() {
+const App = () => {
+  let pathName = window.location.pathname
 
+  console.log((pathName === '/login' || pathName === '/access'))
   return (
-    <>
-      hi
-    </>
-  )
-}
+    <div >
+      <Router>
+        <div className="app">
+          {!(pathName === '/login' || pathName === '/access') && <Sidebar />}
+          <div className="content">
+            {/* <Header /> */}
+            <Routes>
+              <Route path="/" element={<MainContent />} />
+              <Route path="/login" element={<Mainlogin />} />
+              <Route path="/access" element={<LoginAccess />} />
+            </Routes>
+            {/* <Footer /> */}
+          </div>
+        </div>
+      </Router>
+    </div>
+  );
+};
 
-export default App
+export default App;
