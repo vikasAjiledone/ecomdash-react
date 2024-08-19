@@ -12,7 +12,7 @@ const Mainlogin = () => {
   };
 
   return (
-    <div className="main-login-form">
+    <div className="main-login-form" style={{marginLeft:"0"}}>
       <div>
         <img src={logo} alt="" />
       </div>

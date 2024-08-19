@@ -3,7 +3,7 @@ import logo from "../../assets/Logo_Ecomdash.png";
 
 const LoginAccess = () => {
   return (
-    <div className="firstLogin-Display">
+    <div className="firstLogin-Display"  style={{marginLeft:"0"}}>
       <div className="firstLogin-logo">
         <div>
           <img src={logo} alt="" />

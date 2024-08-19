@@ -20,6 +20,7 @@ body {
   flex-direction: column;
   justify-content: space-between;
   height: 100vh;
+  position: fixed;
 }
 
 .logo-back{
@@ -76,8 +77,11 @@ body {
   display: flex;
   flex-direction: column;
   background-color: #ecf0f1;
+  
 }
-
+.content>div{
+  margin-left: 235px;
+}
 .header {
   padding: 20px;
   background-color: white;
