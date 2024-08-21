@@ -12,6 +12,8 @@ import Reporting from "./pages/Reporting/Reporting";
 import ReportingApply from "./pages/Reporting/ReportingApply";
 import MyAccount from "./pages/Account/MyAccount";
 import AddOn from "./pages/Add_ons/AddOn";
+import Setting from './pages/Settings/Setting';
+import Products from './pages/Products/Products';
 
 const App = () => {
   let pathName = window.location.pathname;
@@ -32,6 +34,8 @@ const App = () => {
               <Route path="/reportingDetails" element={<ReportingApply />} />
               <Route path="/account" element={<MyAccount />} />
               <Route path="/addon" element={<AddOn />} />
+              <Route path="/setting" element={<Setting />} />
+              <Route path="/products" element={<Products />} />
             </Routes>
             {/* <Footer /> */}
           </div>
