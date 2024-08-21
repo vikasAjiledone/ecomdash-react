@@ -22,7 +22,7 @@ import './products.css'
 import { RiArrowDropDownLine } from "react-icons/ri";
 import { IoSearch } from "react-icons/io5";
 import { IoFilterSharp } from "react-icons/io5";
-
+import multi from '../../assets/multi.png'
 
 function createData(id, img, name, sku, quantity, type, syncing, listing, action) {
     return {
@@ -254,6 +254,7 @@ export default function EnhancedTable() {
     const [page, setPage] = React.useState(0);
     const [dense, setDense] = React.useState(false);
     const [rowsPerPage, setRowsPerPage] = React.useState(5);
+    const [active, setActive] = React.useState(1);
 
     const handleRequestSort = (event, property) => {
         const isAsc = orderBy === property && order === 'asc';
@@ -332,18 +333,24 @@ export default function EnhancedTable() {
                     </div>
                 </div>
                 <div className="product-active">
-                    <div className="active-child">
+                    <div className="active-child" id={active === 1 ? 'product-active' : ''} onClick={() => {
+                        setActive(1)
+                    }}>
                         Products
                     </div>
-                    <div className="active-child">
+                    <div className="active-child" id={active === 2 ? 'product-active' : ''} onClick={() => {
+                        setActive(2)
+                    }}>
                         Multichannel Listings
                     </div>
-                    <div className="active-child">
+                    <div className="active-child" id={active === 3 ? 'product-active' : ''} onClick={() => {
+                        setActive(3)
+                    }}>
                         Purchase Orders
                     </div>
                 </div>
             </div>
-            <Box sx={{ width: '100%' }}>
+            {active === 1 ? <Box sx={{ width: '100%' }}>
                 <Paper sx={{ width: '100%', mb: 2 }}>
                     <EnhancedTableToolbar numSelected={selected.length} />
                     <TableContainer>
@@ -432,7 +439,16 @@ export default function EnhancedTable() {
                     control={<Switch checked={dense} onChange={handleChangeDense} />}
                     label="Dense padding"
                 />
-            </Box>
+            </Box> : active === 2 ? 
+            <div>
+                <div className="listing">
+                    <img src={multi}/>
+                    <h3>No listings? No problem. Add a Sales Channel now!</h3>
+                    <p>Before you can import products you have to connect your sales channel. Try it now!</p>
+                    <button id='connect-btn'>Connect sales channel</button>
+                </div>
+            </div> 
+            : active === 3 ? <div></div> : ""}
         </div>
     );
 }
